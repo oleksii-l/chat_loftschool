@@ -1,0 +1,34 @@
+.members__list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.members__item {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.members__img-wrapper {
+    width: 48px;
+    height: 48px;
+}
+
+.members__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.members__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.members__last-message {
+    color: $grey;
+}

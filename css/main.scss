@@ -1,0 +1,31 @@
+//colors
+$blue: #5288c1;
+$grey: #7f91a4;
+$lightgrey: #e5e5e5;
+$darkblue: #17212b;
+$bgblue: #242f3d;
+$msgblueright: #2b5278;
+$msgblueleft: #182533;
+$bg2: #1d2a39;
+
+$white: #fff;
+$black: #0e1621;
+
+//normalize
+@import "_misc/normalize.scss";
+
+// setups
+@import "_misc/fonts.scss";
+@import "_misc/layout.scss";
+
+// blocks
+@import "blocks/autorization.scss";
+@import "blocks/form.scss";
+@import "blocks/cross.scss";
+@import "blocks/chat.scss";
+@import "blocks/search.scss";
+@import "blocks/members.scss";
+@import "blocks/messages.scss";
+@import "blocks/load-photo.scss";
+@import "blocks/profile.scss";
+

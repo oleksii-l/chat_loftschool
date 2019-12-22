@@ -1,0 +1,56 @@
+.chat {
+  background-color: $darkblue;
+  display: flex;
+  font-size: 14px;
+}
+
+.chat__title {
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.chat__content {
+  width: 100%;
+}
+
+.chat__aside {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  max-width: 264px;
+}
+
+.chat__num {
+  color: $grey;
+}
+
+.chat__footer {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid $black;
+}
+
+.chat__form {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.chat__input {
+  background-color: $darkblue;
+  border: none;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.chat__btn {
+  background-color: $blue;
+  border-radius: 5px;
+  padding: 9px 27px;
+  font-size: 14px;
+  margin-right: 10px;
+}

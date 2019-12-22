@@ -1,0 +1,28 @@
+.load-photo{
+    background-color: $darkblue;
+    padding: 30px 20px;
+    width: 361px;
+    position: relative;
+}
+
+.load-photo__title{
+margin-top: 35px;
+font-size: 18px;
+}
+
+.load-photo__main {
+    display: flex;
+    margin-top: 35px;
+}
+
+.load-photo__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.load-photo__status {
+    margin-top: 15px;
+    color: $blue;
+}

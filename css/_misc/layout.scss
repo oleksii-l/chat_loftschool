@@ -1,0 +1,93 @@
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: rem(16px);
+  position: relative;
+  font-family: 'Ubuntu';
+  color: $white;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 1100;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  width: rem(945px);
+  max-width: 100%;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.section {
+  height: 100vh;
+  min-height: rem(650px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.separator {
+  height: 20px;
+}
+
+// tag styles reset
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+
+  & > li {
+    list-style: none;
+  }
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
