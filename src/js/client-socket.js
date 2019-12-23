@@ -50,9 +50,9 @@ function initSocketConnection(message) {
     };
 
     ws.onmessage = data => {
-        let message = JSON.parse(data);
+        let message = JSON.parse(data.data);
 
-        if (message.type === 'new_message') {
+        if (message.type === 'new-message') {
             let html = chatMsgTemplate({
                 name: message.name,
                 nick: message.nick,

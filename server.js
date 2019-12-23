@@ -14,8 +14,6 @@ wss.on('connection', ws => {
                 name: message.name
             }
         } else if (message.type === 'new-message') {
-            console.log(data);
-            console.log(JSON.parse(data));
             wss.clients.forEach(client => {
                 if (client.readyState === WebSocket.OPEN) {
                     client.send(data);
