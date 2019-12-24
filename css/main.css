@@ -597,7 +597,14 @@ a {
   margin-left: 10px; }
 
 .chat__content {
-  width: 100%; }
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
 
 .chat__aside {
   display: -webkit-box;
@@ -665,13 +672,13 @@ a {
   height: 31px;
   padding-left: 5px; }
 
-.search__btn {
+.user__btn {
   width: 17px;
   height: 2px;
   position: relative;
   background-color: #7f91a4;
   margin-left: 10px; }
-  .search__btn::before {
+  .user__btn::before {
     content: "";
     display: block;
     background-color: #7f91a4;
@@ -680,7 +687,7 @@ a {
     position: absolute;
     top: 5px;
     left: 0; }
-  .search__btn::after {
+  .user__btn::after {
     content: "";
     display: block;
     background-color: #7f91a4;
@@ -743,7 +750,10 @@ a {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-top: 20px; }
+  padding-top: 20px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
 
 .messages__item {
   display: -webkit-box;
@@ -754,6 +764,8 @@ a {
   margin-bottom: 5px; }
   .messages__item--first .messages__img {
     display: block; }
+  .messages__item--first .messages__name {
+    display: block; }
   .messages__item--right {
     -ms-flex-item-align: end;
     align-self: flex-end;
@@ -763,6 +775,9 @@ a {
     flex-direction: row-reverse; }
   .messages__item--right .messages_content {
     background-color: #2b5278; }
+
+.messages__name {
+  display: none; }
 
 .messages__img-wrap {
   width: 35px;
@@ -799,7 +814,13 @@ a {
   background-color: #17212b;
   padding: 30px 20px;
   width: 361px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 5;
   display: none; }
 
 .load-photo__title {
@@ -840,7 +861,14 @@ a {
   justify-content: center;
   background-color: #17212b;
   padding: 34px 41px 20px;
-  width: 365px; }
+  width: 365px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 10; }
 
 .profile__img-wrapper {
   width: 286px;

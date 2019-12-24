@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+  flex: 1;
 }
 
 .messages__item {
@@ -14,6 +15,10 @@
   &--first .messages__img {
     display: block;
   }
+  
+  &--first .messages__name {
+    display: block;
+  }
 
   &--right {
     align-self: flex-end;
@@ -23,6 +28,10 @@
   &--right .messages_content {
     background-color: $msgblueright;
   }
+}
+
+.messages__name {
+  display: none;
 }
 
 .messages__img-wrap {

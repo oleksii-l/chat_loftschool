@@ -5,6 +5,11 @@
     background-color: $darkblue;
     padding: 34px 41px 20px;
     width: 365px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 .profile__img-wrapper{

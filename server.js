@@ -11,8 +11,20 @@ wss.on('connection', ws => {
 
         if(message.type === 'new_user') {
             clients[message.nick] = {
-                name: message.name
+                name: message.name,
+                img: 'img/no_photo.jpg'
             }
+
+            let msgToSend = {
+                type: 'new-client',
+                members: clients
+            };
+
+            wss.clients.forEach(client => {
+                if (client.readyState === WebSocket.OPEN) {
+                    client.send(JSON.stringify(msgToSend));
+                }
+            })
         } else if (message.type === 'new-message') {
             wss.clients.forEach(client => {
                 if (client.readyState === WebSocket.OPEN) {

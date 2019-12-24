@@ -28,33 +28,14 @@
         </div>
     </div>
 
-    <div class="separator"></div>
-
     <div id="chat" class="chat">
         <div class="chat__aside">
             <div class="search">
-                <div class="search__btn"></div>
+                <div id="user-info-btn" class="user__btn"></div>
                 <input type="text" class="search__input" placeholder="Найти...">
             </div>
-            <ul class="members__list">
-                <li class="members__item">
-                    <div class="members__img-wrapper">
-                        <img src="img/igor.jpg" alt="" class="members__img">
-                    </div>
-                    <div class="members__content">
-                        <div class="members__name">Игорь Яицкий</div>
-                        <div class="members__last-message">Рад был пообщаться</div>
-                    </div>
-                </li>
-                <li class="members__item">
-                    <div class="members__img-wrapper">
-                        <img src="img/aleksey.jpg" alt="" class="members__img">
-                    </div>
-                    <div class="members__content">
-                        <div class="members__name">Алексей Трубин</div>
-                        <div class="members__last-message">Привет!</div>
-                    </div>
-                </li>
+            <ul id="member-list" class="members__list">
+                <!-- current members will be here -->
             </ul>
         </div>
         <div class="chat__content">
@@ -62,9 +43,9 @@
                 <div class="chat__name">Чат</div>
                 <div class="chat__num">2 участника</div>
             </div>
-            <ul id="chat-messages" class="messages">      
-                <!--Chat messages will be inserted here-->         
-            </ul>            
+            <ul id="chat-messages" class="messages">
+                <!--Chat messages will be inserted here-->
+            </ul>
             <div class="chat__footer">
                 <form class="chat__form" action="">
                     <input id="chat_message" class="chat__input" type="text" placeholder="Введите сообщение...">
@@ -74,37 +55,12 @@
         </div>
     </div>
 
-    <div class="separator"></div>
-
-    <div class="load-photo">
-        <div class="load-photo__title">
-            Загрузка фото
-        </div>
-        <div class="load-photo__main">
-            <div class="load-photo__img-wrapper">
-                <img src="img/photo-camera.png" alt="" class="load-photo__img">
-            </div>
-            <div class="load-photo__content">
-                <div class="load-photo__name">
-                    Алексей Трубин
-                </div>
-                <div class="load-photo__status">В сети</div>
-            </div>
-        </div>
-        <div class="cross"></div>
+    <div id="user-info" class="load-photo">
+        <!--user info will be here-->
     </div>
 
-    <div class="separator"></div>
-
-    <div class="profile">
-        <div class="profile__img-wrapper">
-            <img src="img/aleksey_big.jpg" alt="" class="profile__img">
-        </div>
-        <div class="profile__desc">Область для профильной фотографии</div>
-        <div class="profile__buttons">
-            <button class="profile__btn">Отмена</button>
-            <button class="profile__btn">Сохранить</button>
-        </div>
+    <div id="upload-photo" class="profile">
+        <!-- profile will be here -->
     </div>
 
     <script id="chatMessage" type="text/x-handlebars-template">
@@ -118,6 +74,49 @@
                 <div class="messages__time">{{time}}</div>
             </div>
         </li>
+    </script>
+
+    <script id="chatMembers" type="text/x-handlebars-template">
+        {{#each members}}
+        <li class="members__item">
+            <div class="members__img-wrapper">
+                <img src="{{this.img}}" alt="" class="members__img">
+            </div>
+            <div class="members__content">
+                <div class="members__name">{{this.name}}</div>
+                <div class="members__last-message">{{this.last_message}}</div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+    <script id="profileTemplate" type="text/x-handlebars-template">
+        <div class="profile__img-wrapper">
+            <img src="{{img}}" alt="" class="profile__img">
+        </div>
+        <div class="profile__desc">Область для профильной фотографии</div>
+        <div class="profile__buttons">
+            <button class="profile__btn">Отмена</button>
+            <button class="profile__btn">Сохранить</button>
+        </div>
+    </script>
+
+    <script id="userInfoTemplate" type="text/x-handlebars-template">
+        <div class="load-photo__title">
+            Загрузка фото
+        </div>
+        <div class="load-photo__main">
+            <div id='photo-upload-btn' class="load-photo__img-wrapper">
+                <img src="img/photo-camera.png" alt="" class="load-photo__img">
+            </div>
+            <div class="load-photo__content">
+                <div class="load-photo__name">
+                    {{name}}
+                </div>
+                <div class="load-photo__status">В сети</div>
+            </div>
+        </div>
+        <div id="close" class="cross"></div>
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
