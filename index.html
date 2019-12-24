@@ -92,9 +92,10 @@
 
     <script id="profileTemplate" type="text/x-handlebars-template">
         <div class="profile__img-wrapper">
-            <img src="{{img}}" alt="" class="profile__img">
+            <img id="profile__img" src="{{img}}" alt="" class="profile__img">
         </div>
-        <div class="profile__desc">Область для профильной фотографии</div>
+        <input type="file" id="file" accept="image/*">
+        <label class="profile__desc" for="fileElem">Выберите изображение или перетащите его на форму (Изображение в формате jpg и размер менее 512кб)</label>
         <div class="profile__buttons">
             <button class="profile__btn">Отмена</button>
             <button class="profile__btn">Сохранить</button>

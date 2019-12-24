@@ -9,6 +9,8 @@ let userInfoWnd = document.querySelector('#user-info');
 let closeBtn = document.querySelector('#close');
 let uploadPhotoBtn = document.querySelector('#photo-upload-btn');
 let profileWnd = document.querySelector('#upload-photo');
+let fileBtn = document.querySelector('#file');
+let profileImg = document.querySelector('#profile__img');
 
 let lastUserNick = '';
 
@@ -20,6 +22,7 @@ let currentUser = {
 const chatMsgTemplate = Handlebars.compile(document.querySelector('#chatMessage').innerHTML);
 const chatMembersTemplate = Handlebars.compile(document.querySelector('#chatMembers').innerHTML);
 const profileTemplate = Handlebars.compile(document.querySelector('#profileTemplate').innerHTML);
+const userInfoTemplate = Handlebars.compile(document.querySelector('#userInfoTemplate').innerHTML);
 
 autoForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -39,6 +42,10 @@ autoForm.addEventListener('submit', (event) => {
 })
 
 userInfoBtn.addEventListener('click', () => {
+    let html = userInfoTemplate({
+        name: currentUser.name
+    });
+    userInfoWnd.innerHTML = html;
     userInfoWnd.style.display = 'block';
 });
 
@@ -53,6 +60,55 @@ uploadPhotoBtn.addEventListener('click', ()=>{
     profileWnd.innerHTML = html;
     profileWnd.style.display = 'block';
 })
+
+
+/** Drag & Frop support */
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    profileWnd.addEventListener(eventName, function (e) {
+        e.preventDefault();
+        e.stopPropagation()
+    })
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+    profileWnd.addEventListener(eventName, function () {
+        this.classList.add('highlight')
+    })
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    profileWnd.addEventListener(eventName, function () {
+        this.classList.remove('highlight')
+    })
+});
+
+fileElem.addEventListener('change', function () {
+    const file = this.files[0];
+    if( Math.floor(file.size / 1024) <= 512 && file.type === 'image/jpeg'){
+        previewFile(file)
+    }else{
+        alert('Файл должен быть изображением формата jpg с размером менее 512кб')
+    }
+});
+
+profileWnd.addEventListener('drop', function (e) {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    const file = files[0];
+    if( Math.floor(file.size / 1024) <= 512 && file.type === 'image/jpeg'){
+        previewFile(file)
+    }else{
+        alert('Файл должен быть изображением формата jpg с размером менее 512кб')
+    }
+});
+
+function previewFile(file) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = function() {
+        profileImg.src = reader.result;
+    }
+};
 
 function initSocketConnection(message) {
 
