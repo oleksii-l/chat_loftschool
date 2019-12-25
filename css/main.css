@@ -777,7 +777,9 @@ a {
     background-color: #2b5278; }
 
 .messages__name {
-  display: none; }
+  display: none;
+  margin-right: 10px;
+  margin-left: 10px; }
 
 .messages__img-wrap {
   width: 35px;
@@ -849,6 +851,21 @@ a {
 .load-photo__status {
   margin-top: 15px;
   color: #5288c1; }
+
+#file {
+  display: none; }
+
+.load-photo__img-wrapper {
+  width: 87px;
+  height: 87px;
+  border-radius: 50%; }
+
+.load-photo__img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 50%; }
 
 .profile {
   display: none;

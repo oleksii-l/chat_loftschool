@@ -41,7 +41,7 @@
         <div class="chat__content">
             <div class="chat__title">
                 <div class="chat__name">Чат</div>
-                <div class="chat__num">2 участника</div>
+                <div id="chat_mem_num" class="chat__num">0 участника</div>
             </div>
             <ul id="chat-messages" class="messages">
                 <!--Chat messages will be inserted here-->
@@ -66,7 +66,7 @@
     <script id="chatMessage" type="text/x-handlebars-template">
         <li class="messages__item {{first}} {{right}}">
             <div class="messages__img-wrap">
-                <img src="{{img}}" class="messages__img {{nick}}_photo">
+                <img src="{{img}}" data-nick="{{nick}}" class="messages__img">
             </div>
             <div class="messages__name">{{name}}</div>
             <div class="messages_content">
@@ -80,7 +80,7 @@
         {{#each members}}
         <li class="members__item">
             <div class="members__img-wrapper">
-                <img src="{{this.img}}" alt="" class="members__img">
+                <img src="{{this.img}}" data-nick="{{this.nick}}" class="members__img">
             </div>
             <div class="members__content">
                 <div class="members__name">{{this.name}}</div>
@@ -92,13 +92,13 @@
 
     <script id="profileTemplate" type="text/x-handlebars-template">
         <div class="profile__img-wrapper">
-            <img id="profile__img" src="{{img}}" alt="" class="profile__img">
+            <img id="profile__img" src="{{img}}" data-nick="{{nick}}" class="profile__img">
         </div>
         <input type="file" id="file" accept="image/*">
-        <label class="profile__desc" for="fileElem">Выберите изображение или перетащите его на форму (Изображение в формате jpg и размер менее 512кб)</label>
+        <div class="profile__desc">Выберите изображение или перетащите его на форму (Изображение в формате jpg и размер менее 512кб)</div>
         <div class="profile__buttons">
-            <button class="profile__btn">Отмена</button>
-            <button class="profile__btn">Сохранить</button>
+            <button id="profile-btn-cancel" class="profile__btn">Отмена</button>
+            <button id="profile-btn-save" class="profile__btn">Сохранить</button>
         </div>
     </script>
 
@@ -108,7 +108,7 @@
         </div>
         <div class="load-photo__main">
             <div id='photo-upload-btn' class="load-photo__img-wrapper">
-                <img src="img/photo-camera.png" alt="" class="load-photo__img">
+                <img src="{{img}}" data-nick="{{nick}}" class="load-photo__img">
             </div>
             <div class="load-photo__content">
                 <div class="load-photo__name">
