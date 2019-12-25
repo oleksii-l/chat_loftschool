@@ -11,7 +11,7 @@
 
 <body>
 
-    <div class="autorization">
+    <div id="autorization" class="autorization">
         <div class="autorization__img-wrapper">
             <img src="img/logo.png" alt="" class="autorization__img">
         </div>
@@ -20,156 +20,108 @@
             <div class="autorization-form__desc">
                 Введите пожалуйста своё фио и ник для дальнейшей авторизации
             </div>
-            <form action="" class="form">
-                <input type="text" class="form__input" placeholder="Введите свое фио">
-                <input type="text" class="form__input" placeholder="Введите свой ник">
-                <button type="submit" class="form__btn">войти</button>
+            <form id="autorization-form" class="form">
+                <input type="text" name="name" class="form__input" placeholder="Введите свое фио" required>
+                <input type="text" name="nick" class="form__input" placeholder="Введите свой ник" required>
+                <button id="enterchat" type="submit" class="form__btn">войти</button>
             </form>
         </div>
     </div>
 
-    <div class="separator"></div>
-
-    <div class="chat">
+    <div id="chat" class="chat">
         <div class="chat__aside">
             <div class="search">
-                <div class="search__btn"></div>
+                <div id="user-info-btn" class="user__btn"></div>
                 <input type="text" class="search__input" placeholder="Найти...">
             </div>
-            <ul class="members__list">
-                <li class="members__item">
-                    <div class="members__img-wrapper">
-                        <img src="img/igor.jpg" alt="" class="members__img">
-                    </div>
-                    <div class="members__content">
-                        <div class="members__name">Игорь Яицкий</div>
-                        <div class="members__last-message">Рад был пообщаться</div>
-                    </div>
-                </li>
-                <li class="members__item">
-                    <div class="members__img-wrapper">
-                        <img src="img/aleksey.jpg" alt="" class="members__img">
-                    </div>
-                    <div class="members__content">
-                        <div class="members__name">Алексей Трубин</div>
-                        <div class="members__last-message">Привет!</div>
-                    </div>
-                </li>
+            <ul id="member-list" class="members__list">
+                <!-- current members will be here -->
             </ul>
         </div>
         <div class="chat__content">
             <div class="chat__title">
                 <div class="chat__name">Чат</div>
-                <div class="chat__num">2 участника</div>
+                <div id="chat_mem_num" class="chat__num">0 участника</div>
             </div>
-            <ul class="messages">
-                <li class="messages__item messages__item--first">
-                    <div class="messages__img-wrap">
-                        <img src="img/igor.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">Привет!</div>
-                        <div class="messages__time">17:55</div>
-                    </div>
-                </li>
-                <li class="messages__item">
-                    <div class="messages__img-wrap">
-                        <img src="img/igor.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">Как дела?</div>
-                        <div class="messages__time">17:55</div>
-                    </div>
-                </li>
-                <li class="messages__item messages__item--first messages__item--right">
-                    <div class="messages__img-wrap">
-                        <img src="img/aleksey.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">Привет!</div>
-                        <div class="messages__time">17:58</div>
-                    </div>
-                </li>
-                <li class="messages__item messages__item--right">
-                    <div class="messages__img-wrap">
-                        <img src="img/aleksey.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">Хорошо</div>
-                        <div class="messages__time">17:58</div>
-                    </div>
-                </li>
-                <li class="messages__item messages__item--right">
-                    <div class="messages__img-wrap">
-                        <img src="img/aleksey.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">Как у тебя дела?</div>
-                        <div class="messages__time">17:58</div>
-                    </div>
-                </li>
-
-                <li class="messages__item messages__item--first">
-                    <div class="messages__img-wrap">
-                        <img src="img/igor.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">У меня тоже все хорошо</div>
-                        <div class="messages__time">17:59</div>
-                    </div>
-                </li>
-                <li class="messages__item">
-                    <div class="messages__img-wrap">
-                        <img src="img/igor.jpg" alt="" class="messages__img">
-                    </div>
-                    <div class="messages_content">
-                        <div class="messages__text">Рад был пообщаться</div>
-                        <div class="messages__time">17:59</div>
-                    </div>
-                </li>
+            <ul id="chat-messages" class="messages">
+                <!--Chat messages will be inserted here-->
             </ul>
             <div class="chat__footer">
                 <form class="chat__form" action="">
-                    <input class="chat__input" type="text" placeholder="Введите сообщение...">
-                    <button class="chat__btn" type="submit">Отправить</button>
+                    <input id="chat_message" class="chat__input" type="text" placeholder="Введите сообщение...">
+                    <button id="send-message" class="chat__btn" type="submit">Отправить</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="separator"></div>
+    <div id="user-info" class="load-photo">
+        <!--user info will be here-->
+    </div>
 
-    <div class="load-photo">
+    <div id="upload-photo" class="profile">
+        <!-- profile will be here -->
+    </div>
+
+    <script id="chatMessage" type="text/x-handlebars-template">
+        <li class="messages__item {{first}} {{right}}">
+            <div class="messages__img-wrap">
+                <img src="{{img}}" data-nick="{{nick}}" class="messages__img">
+            </div>
+            <div class="messages__name">{{name}}</div>
+            <div class="messages_content">
+                <div class="messages__text">{{text}}</div>
+                <div class="messages__time">{{time}}</div>
+            </div>
+        </li>
+    </script>
+
+    <script id="chatMembers" type="text/x-handlebars-template">
+        {{#each members}}
+        <li class="members__item">
+            <div class="members__img-wrapper">
+                <img src="{{this.img}}" data-nick="{{this.nick}}" class="members__img">
+            </div>
+            <div class="members__content">
+                <div class="members__name">{{this.name}}</div>
+                <div class="members__last-message">{{this.last_message}}</div>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+    <script id="profileTemplate" type="text/x-handlebars-template">
+        <div class="profile__img-wrapper">
+            <img id="profile__img" src="{{img}}" data-nick="{{nick}}" class="profile__img">
+        </div>
+        <input type="file" id="file" accept="image/*">
+        <div class="profile__desc">Выберите изображение или перетащите его на форму (Изображение в формате jpg и размер менее 512кб)</div>
+        <div class="profile__buttons">
+            <button id="profile-btn-cancel" class="profile__btn">Отмена</button>
+            <button id="profile-btn-save" class="profile__btn">Сохранить</button>
+        </div>
+    </script>
+
+    <script id="userInfoTemplate" type="text/x-handlebars-template">
         <div class="load-photo__title">
             Загрузка фото
         </div>
         <div class="load-photo__main">
-            <div class="load-photo__img-wrapper">
-                <img src="img/photo-camera.png" alt="" class="load-photo__img">
+            <div id='photo-upload-btn' class="load-photo__img-wrapper">
+                <img src="{{img}}" data-nick="{{nick}}" class="load-photo__img">
             </div>
             <div class="load-photo__content">
                 <div class="load-photo__name">
-                    Алексей Трубин
+                    {{name}}
                 </div>
                 <div class="load-photo__status">В сети</div>
             </div>
         </div>
-        <div class="cross"></div>
-    </div>
+        <div id="close" class="cross"></div>
+    </script>
 
-    <div class="separator"></div>
-
-    <div class="profile">
-        <div class="profile__img-wrapper">
-            <img src="img/aleksey_big.jpg" alt="" class="profile__img">
-        </div>
-        <div class="profile__desc">Область для профильной фотографии</div>
-    <div class="profile__buttons">
-        <button class="profile__btn">Отмена</button>
-        <button class="profile__btn">Сохранить</button>
-    </div>
-    </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="./src/js/client-socket.js"></script>
 
 </body>
 
